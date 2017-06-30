@@ -23,7 +23,7 @@ var todoList = localStorage.getItem('todo');
         var task = todo.value;
         var wtodo = {
             "task": task,
-            "done": "false"
+            "done": false
         };
 
         todoList.push(wtodo);
