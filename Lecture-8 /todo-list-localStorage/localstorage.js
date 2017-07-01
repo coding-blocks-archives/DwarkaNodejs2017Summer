@@ -38,7 +38,7 @@ var todoList = localStorage.getItem('todo');
             todoList = JSON.parse(localStorage.getItem('todo'));
             var cont = '';
 
-            for( var i=1; i< todoList.length; i++) {
+            for( var i=0; i< todoList.length; i++) {
                 var todo = '<input  class="checkstyle" type="text"' + ' value= ' + todoList[i] + '/>' ;
                 cont = cont + '<input ' +
                         (todoList[i].done? "checked": "" )  +
