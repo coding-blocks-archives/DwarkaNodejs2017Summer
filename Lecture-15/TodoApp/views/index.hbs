@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todolist</title>
+</head>
+<body>
+<ul>
+    {{# if task}}
+        <li>{{this.task}}</li>
+     {{/if}}
+    {{else}}
+    {{#each todo}}
+        <li id="{{this.id}}">{{this.task}}</li>
+    {{/each}}
+</ul>
+
+<script>
+
+</script>
+</body>
+</html>
