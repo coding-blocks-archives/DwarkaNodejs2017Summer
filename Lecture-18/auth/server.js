@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var localStrategy = passportLocal.Strategy;
 var userConfig = require('./userconfig');
+
 console.log(userConfig);
 
 var app = express();
@@ -21,6 +22,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({secret: 'keyboard cat'}));
 app.use(passport.initialize());
 app.use(passport.session());
+
+var route = {
+    secure: require('./route/secure'),
+    notsecure: require('./route/notsecure')
+};
+
+app.use('/secure', route.secure );
+app.use('/notsecure', route.notsecure);
+
 
 passport.use(new localStrategy(
     function(username, password, done) {
@@ -48,6 +58,7 @@ passport.deserializeUser(function(user, done) {
 app.get('/success', function(req, res) {
     res.send("Login User")
 });
+
 
 app.post('/login',
           passport.authenticate('local',
