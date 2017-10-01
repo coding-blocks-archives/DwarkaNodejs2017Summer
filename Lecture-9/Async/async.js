@@ -8,7 +8,7 @@ function b(url) {
     function main (data) {
         console.log(data)
     }
-    setInterval(ajax(url,main),1000);
+    setInterval(function() {ajax(url,main)},1000);
     console.log("After b");
 }
 
